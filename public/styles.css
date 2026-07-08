@@ -86,6 +86,24 @@ section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
 .btn-teal:hover   { background: var(--teal-deep); color: #fff; transform: translateY(-2px); }
 
 /* =================================================================
+   HOLIDAY BANNER
+   ================================================================= */
+.holiday-banner {
+  background: linear-gradient(120deg, var(--gold) 0%, var(--warm) 100%);
+  color: #3a2600;
+  font-size: .95rem;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid rgba(58, 38, 0, .18);
+}
+.holiday-banner .wrap {
+  padding: .75rem 0;
+}
+.holiday-banner strong {
+  font-weight: 800;
+}
+
+/* =================================================================
    TOP BAR  (thin utility strip: phone / hours)
    ================================================================= */
 .topbar {
