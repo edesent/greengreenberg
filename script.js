@@ -52,7 +52,7 @@
 })();
 
 /* ---------- D) LIVE CHAT WIDGET --------------------------------------------
-   A self-contained demo chat: opens a panel, echoes the visitor's message,
+   A self-contained chat widget: opens a panel, echoes the visitor's message,
    and replies with a canned answer based on simple keyword matching.
    Swap the replies below (or point sendToBackend() at a real service)
    to make it production chat.

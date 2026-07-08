@@ -132,6 +132,7 @@ section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
   position: relative; overflow: hidden;
   min-height: min(78vh, 640px);
   display: grid;
+  padding: 0;              /* override default <section> padding — no gap above hero */
 }
 .slides { display: grid; grid-template-areas: "stack"; }
 .slide {
@@ -152,6 +153,14 @@ section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
   transition: transform 6s ease-out;
 }
 .slide.is-active::before { transform: scale(1); }
+
+/* branded slide (no photo — deep teal with the logo) */
+.slide.slide-brand::before {
+  background: radial-gradient(circle at 25% 25%, var(--teal-light) 0%, var(--teal) 45%, var(--teal-deep) 100%);
+  transform: none;
+}
+.slide.slide-brand .brand-logo { height: 60px; width: auto; margin-bottom: 1.4rem; }
+
 .slide .hero-inner { position: relative; z-index: 2; max-width: 640px; color: #fff; padding-block: 3rem; }
 .slide .hero-inner .eyebrow { color: var(--gold-soft); }
 .slide h1 { color: #fff; font-size: clamp(2rem, 4.6vw, 3.4rem); margin-bottom: .5rem; }
@@ -311,7 +320,10 @@ section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
 .socials { display: flex; gap: .7rem; margin-top: 1rem; }
 .socials a { width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.08); display: grid; place-items: center; color: #fff; }
 .socials a:hover { background: var(--gold); color: #3a2600; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); margin-top: 2.5rem; padding-top: 1.2rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: .85rem; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); margin-top: 2.5rem; padding-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: .85rem; }
+.footer-bottom a { display: inline; padding: 0; }           /* keep footer-bottom links inline */
+.footer-bottom .legal { display: inline-flex; gap: .9rem; align-items: center; }
+.footer-bottom .legal span.sep { opacity: .4; }
 .disclaimer { font-size: .78rem; color: #8fa8a4; max-width: 70ch; margin-top: .8rem; }
 
 /* =================================================================
