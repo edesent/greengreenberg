@@ -96,7 +96,10 @@ section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
 .topbar a { color: #fff; font-weight: 600; }
 .topbar a:hover { color: var(--gold); }
 .topbar .tb-left { display: flex; gap: 1.4rem; flex-wrap: wrap; }
-.topbar .tb-right { display: flex; gap: .8rem; align-items: center; }
+.topbar .tb-left span { display: inline-flex; align-items: center; }
+.topbar .tb-right { display: inline-flex; gap: .5rem; align-items: center; }
+/* flat monochrome line/solid icons */
+.topbar .ti { width: 15px; height: 15px; margin-right: .45rem; color: var(--gold); flex: none; }
 .topbar .dot { color: var(--gold); }
 
 /* =================================================================
