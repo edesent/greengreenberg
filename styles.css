@@ -229,6 +229,44 @@ section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
 .card h3 { font-size: 1.15rem; margin-bottom: .35rem; }
 .card p { color: #bcd2ce; margin: 0; font-size: .96rem; }
 
+/* --- Why Us: click-to-expand accordion --- */
+.accordion { max-width: 860px; margin: 2.6rem auto 0; display: grid; gap: .8rem; }
+.acc-item {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius); overflow: hidden; transition: background .25s, border-color .25s;
+}
+.acc-item.open { background: rgba(255,255,255,.09); border-color: rgba(233,185,106,.5); }
+.acc-head {
+  width: 100%; background: none; border: 0; cursor: pointer; text-align: left;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .5rem 1.1rem;
+  padding: 1.15rem 1.4rem; color: #fff; font-family: inherit;
+}
+.acc-num {
+  grid-row: span 2; font-family: var(--serif); font-size: 1.35rem; color: var(--gold-soft);
+  width: 48px; height: 48px; display: grid; place-items: center;
+  border: 1px solid rgba(233,185,106,.45); border-radius: 12px; transition: .25s;
+}
+.acc-item.open .acc-num { background: var(--gold); color: #3a2600; border-color: var(--gold); }
+.acc-title { font-family: var(--serif); font-size: 1.15rem; align-self: end; line-height: 1.2; }
+.acc-sub { grid-column: 2; font-size: .88rem; color: #a9c4bf; align-self: start; }
+/* +/- toggle drawn in CSS */
+.acc-toggle { grid-row: span 2; position: relative; width: 20px; height: 20px; justify-self: end; }
+.acc-toggle::before, .acc-toggle::after {
+  content: ""; position: absolute; top: 50%; left: 50%; width: 14px; height: 2px;
+  background: var(--gold-soft); transform: translate(-50%,-50%); transition: transform .3s var(--ease);
+}
+.acc-toggle::after { transform: translate(-50%,-50%) rotate(90deg); }
+.acc-item.open .acc-toggle::after { transform: translate(-50%,-50%) rotate(0deg); }  /* + → − */
+/* smooth height via grid-template-rows */
+.acc-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .32s var(--ease); }
+.acc-item.open .acc-body { grid-template-rows: 1fr; }
+.acc-body-inner { overflow: hidden; }
+.acc-body-inner p { color: #cfe0dc; margin: 0; padding: 0 1.4rem 1.3rem calc(48px + 2.5rem); font-size: .98rem; }
+@media (max-width: 620px) {
+  .acc-head { grid-template-columns: auto 1fr auto; }
+  .acc-body-inner p { padding-left: 1.4rem; }
+}
+
 /* =================================================================
    PROCESS  (numbered steps)
    ================================================================= */

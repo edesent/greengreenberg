@@ -111,6 +111,23 @@
   quick.addEventListener('click', e => { if (e.target.tagName === 'BUTTON') send(e.target.textContent); });
 })();
 
+/* ---------- E) WHY-US ACCORDION --------------------------------------------
+   Click a reason to expand its detail. Opening one closes the others.
+   -------------------------------------------------------------------------- */
+(function whyAccordion() {
+  const acc = document.getElementById('whyAccordion');
+  if (!acc) return;
+  const items = Array.from(acc.querySelectorAll('.acc-item'));
+  items.forEach(item => {
+    const head = item.querySelector('.acc-head');
+    head.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      items.forEach(i => { i.classList.remove('open'); i.querySelector('.acc-head').setAttribute('aria-expanded', 'false'); });
+      if (!isOpen) { item.classList.add('open'); head.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+})();
+
 /* ---------- C) SCROLL REVEAL ------------------------------------------------ */
 (function scrollReveal() {
   const items = document.querySelectorAll('.reveal');
